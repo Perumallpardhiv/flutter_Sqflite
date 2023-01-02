@@ -67,6 +67,8 @@ class _homePageState extends State<homePage> {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   )
                 : RefreshIndicator(
+                    edgeOffset: 25,
+                    displacement: 40,
                     onRefresh: () => refreshNotes(),
                     child: StaggeredGridView.countBuilder(
                       padding: EdgeInsets.all(8),

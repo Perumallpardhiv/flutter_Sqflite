@@ -17,7 +17,7 @@ class dbHelper {
     return _database!;
   }
 
-  //! all the below 23-40 lines takes place only when 'todo.db' named database is not in device path
+  //! all the below 20-35 lines takes place only when 'todo.db' named database is not in device path
   //? so, once after creating a database if we want to update that follow these steps:-
   //? -> beside of onCreate add onUpdate attribute and give _update function to it
   //? -> increase version number by adding one.
@@ -70,7 +70,7 @@ class dbHelper {
     final db = await instance.database;
     final order = 'date ASC';
 
-    //? some times we may need to create like a sql statement then we use "db.rawQuery" method else we can use "db.query" method.
+    //? some times we may need to read like a sql statement then we use "db.rawQuery" method else we can use "db.query" method.
     // final result = await db.rawQuery('SELECT * FROM $tableName ORDER BY $order');  //? sql statement.
 
     final result = await db.query(tableName, orderBy: order);

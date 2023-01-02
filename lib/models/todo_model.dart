@@ -9,7 +9,7 @@ class todomodel {
 
   //used when creating first time because we will not have id intially.
   todomodel({
-    this.id,
+    required this.id,
     required this.number,
     required this.title,
     required this.description,
@@ -29,7 +29,7 @@ class todomodel {
 
   // map to model
   static todomodel fromMap(Map<String, Object?> mp) => todomodel(
-        id: mp['id'] as int?,
+        id: mp['id'] as int,
         number: mp['number'] as int,
         title: mp['title'] as String,
         description: mp['description'] as String,
