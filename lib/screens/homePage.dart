@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sql_todo/models/provider.dart';
 import 'package:sql_todo/models/todo_model.dart';
 import 'package:sql_todo/screens/editAddTodo.dart';
 import 'package:sql_todo/screens/viewTodo.dart';
@@ -15,6 +18,8 @@ class _homePageState extends State<homePage> {
   late List<todomodel> todos;
   late dbHelper helper;
   bool isLoading = false;
+  bool isDark = true;
+  var prov1;
 
   @override
   void initState() {
@@ -50,6 +55,7 @@ class _homePageState extends State<homePage> {
 
   @override
   Widget build(BuildContext context) {
+    prov1 = Provider.of<themeChange>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -57,6 +63,17 @@ class _homePageState extends State<homePage> {
           style: TextStyle(fontSize: 24),
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              prov1.changeTheme();
+            },
+            icon: Icon(
+              Icons.light,
+              color: Colors.amber,
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: isLoading
