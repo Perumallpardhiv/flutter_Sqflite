@@ -52,7 +52,7 @@ class _editTodoState extends State<editTodo> {
                     final todo = todomodel(
                       id: Random().nextInt(1000),
                       number: number,
-                      title: title,
+                      title: title.toLowerCase(),
                       description: description,
                       status: status,
                       date: DateTime.now(),
@@ -62,7 +62,7 @@ class _editTodoState extends State<editTodo> {
                     final todo = todomodel(
                       id: widget.todo_model!.id,
                       status: status,
-                      title: title,
+                      title: title.toLowerCase(),
                       description: description,
                       number: number,
                       date: widget.todo_model!.date,
